@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Uploaded Assets</title>
+</head>
+<body>
+  <h1>My Assets</h1>
+  <a href="{% url 'asset-upload' %}">Upload New Asset</a>
+  <ul>
+    {% for asset in assets %}
+      <li>
+        <h3>{{ asset.title }}</h3>
+        <p>{{ asset.description }}</p>
+        <p>Uploaded on: {{ asset.uploaded_at }}</p>
+      </li>
+    {% empty %}
+      <li>You haven't uploaded any assets yet.</li>
+    {% endfor %}
+  </ul>
+  <!-- Placeholder for calendar of accepted requests -->
+  <div id="creator-calendar">
+    <h2>Request Calendar</h2>
+    <p>[Calendar component goes here]</p>
+  </div>
+</body>
+</html>

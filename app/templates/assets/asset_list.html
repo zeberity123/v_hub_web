@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>3D Assets</title>
+</head>
+<body>
+  <h1>All 3D Assets</h1>
+  <ul>
+    {% for asset in assets %}
+      <li>
+        <h3>{{ asset.title }}</h3>
+        <p>{{ asset.description }}</p>
+        <p>Price: ${{ asset.price }}</p>
+        <a href="{{ asset.file.url }}">View/Download</a>
+      </li>
+    {% empty %}
+      <li>No assets available.</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Purchase Detail</title>
+</head>
+<body>
+  <h1>Purchase Detail: {{ purchase.asset.title }}</h1>
+  <p>Purchase Date: {{ purchase.purchase_date }}</p>
+  <p>Status: {{ purchase.status }}</p>
+  <p>Progress: {{ purchase.progress }}%</p>
+  
+  <h2>Chat with Creator</h2>
+  <ul>
+    {% for message in purchase.messages.all %}
+      <li>
+        <strong>{{ message.sender.username }}</strong> ({{ message.timestamp }}): 
+        {{ message.message }}
+      </li>
+    {% empty %}
+      <li>No messages yet.</li>
+    {% endfor %}
+  </ul>
+  <!-- You might add a form here to post new chat messages -->
+</body>
+</html>
